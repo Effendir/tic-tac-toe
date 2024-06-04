@@ -1,0 +1,118 @@
+/* ROOT */
+
+@font-face {
+  font-family: ;
+  src: url();
+}
+
+:root {
+  --white: rgb(255, 255, 255);
+  --lighter-grey: rgb(192, 192, 192);
+  --grey: rgb(128, 128, 128);
+  --darker-grey: rgb(64, 64, 64);
+  --black: rgb(0, 0, 0);
+
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--white);
+  overflow: auto;
+  height: 100vh;
+}
+
+.container {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* HEADER */
+
+header {
+  width: 100%;
+  height: 100px;
+  padding: 1%;
+  background-color: var(--darker-grey);
+  color: var(--white);
+}
+
+
+/* MAIN */
+
+.main {
+  padding: 1%;
+  margin-right: 2%;
+  margin-left: 2%;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  background-color: var(--lighter-grey);
+}
+
+#gameboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 700px;
+}
+
+.square {
+  display: flex;
+  flex-wrap: wrap;
+  float: left;
+  border: 1px solid black;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+  height: 30%;
+  text-align: center;
+  font-size: 80px;
+  background-color: white;
+}
+
+#controls, #message {
+  text-align: center;
+  margin: 20px 0;
+}
+
+/* FOOTER */
+
+footer {
+  width: 100%;
+  height: 70px;
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  margin-top: auto;
+  background-color: var(--grey);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: var(--white);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.footer-links a, footer a {
+  color: var(--white);
+  text-decoration: none;
+}
+
+.footer-links i:hover, footer a:hover {
+  color: var(--lighter-grey);
+  transform: scale(1.2);
+}
+
+.fa-heart {
+  color: var(--pink);
+}
+
+.fa-mug-hot {
+  color: var(--brown);
+}
+
+/* MEDIA QUERY */
+
+@media only screen and (min-width: 768px) {
+
+}
