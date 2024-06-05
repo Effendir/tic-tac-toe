@@ -10,6 +10,11 @@ const Gameboard = (() => {
     const squares = document.querySelectorAll(".square");
     squares.forEach((square) => {
       square.addEventListener("click", Game.handleclick);
+      if (square.innerText === "X") {
+        square.classList.add("navy");
+      } else if (square.innerText === "O") {
+        square.classList.add("orange");
+      }
     })
   }
 

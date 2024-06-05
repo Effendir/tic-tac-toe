@@ -1,8 +1,8 @@
 /* ROOT */
 
 @font-face {
-  font-family: ;
-  src: url();
+  font-family: "submarine";
+  src: url(fonts/submarine.otf);
 }
 
 :root {
@@ -11,13 +11,13 @@
   --grey: rgb(128, 128, 128);
   --navy: rgb(1, 32, 78);
   --teal: rgb(2, 131, 145);
-
 }
 
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--beige);
+  background-image: url(images/untitled.png);
+  background-size: 75%;
   overflow: auto;
   height: 100vh;
 }
@@ -29,32 +29,63 @@ body {
   flex-direction: column;
 }
 
+.navy {
+  color: var(--navy);
+  text-shadow: 2px 2px var(--orange);
+}
+
+.orange {
+  color: var(--orange);
+  text-shadow: 2px 2px var(--teal);
+}
+
 /* HEADER */
 
 header {
   height: 70px;
   padding: 1%;
   background-color: var(--navy);
+  font-family: "submarine";
+  font-size: xx-large;
   color: white;
   display: flex;
   gap: 20%;
   justify-content: center;
   align-items: center;
+  border-bottom: 3px solid var(--orange);
 }
 
+h1 {
+  text-shadow: 3px 3px var(--teal);
+}
+
+input {
+  background-color: var(--beige);
+  border: 2px solid var(--orange);
+  border-radius: 5px;
+  color: var(--navy);
+  font-family: "submarine";
+  font-size: large;
+  margin-right: 10px;
+}
 
 /* MAIN */
 
-button, input {
+button {
   border: 2px solid var(--orange);
   border-radius: 5px;
   color: var(--white);
   background-color: var(--navy);
+  font-family: "submarine";
+  font-size: x-large;
   font-weight: bold;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+  transition: 0.2s ease;
 }
 
 button:hover {
   background-color: var(--teal);
+  box-shadow: var(--beige) 2.4px 2.4px 3.2px;
 }
 
 .main {
@@ -70,6 +101,7 @@ button:hover {
   align-items: center;
   border: 5px solid var(--orange);
   border-radius: 50px;
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 
 #gameboard {
@@ -94,20 +126,24 @@ button:hover {
   width: 25%;
   height: 33.3%;
   text-align: center;
+  font-family: "submarine";
   font-size: 50px;
   background-color: white;
-  color: black;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  transition: 0.2s ease;
 }
 
 .square:hover {
   background-color: var(--beige);
   transform: scale(1.2);
+  border: 3px solid var(--beige);
 }
 
 #controls, #message, #result-display {
   text-align: center;
   margin: 20px 0;
-  font-weight: bold;
+  font-family: "submarine";
+  font-size: x-large;
 }
 
 /* FOOTER */
@@ -124,7 +160,9 @@ footer {
   align-items: center;
   justify-content: space-around;
   color: white;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "submarine";
+  font-size: large;
+  border-top: 3px solid var(--orange);
 }
 
 .footer-links a, footer a {
@@ -133,16 +171,16 @@ footer {
 }
 
 .footer-links i:hover, footer a:hover {
-  color: var(--lighter-grey);
+  color: var(--beige);
   transform: scale(1.2);
 }
 
 .fa-heart {
-  color: var(--pink);
+  color: var(--orange);
 }
 
 .fa-mug-hot {
-  color: var(--brown);
+  color: var(--teal);
 }
 
 /* MEDIA QUERY */
