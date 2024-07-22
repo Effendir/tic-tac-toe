@@ -139,7 +139,7 @@ button:hover {
   border: 3px solid var(--beige);
 }
 
-#controls, #message, #result-display {
+#controls, #message {
   text-align: center;
   margin: 20px 0;
   font-family: "submarine";

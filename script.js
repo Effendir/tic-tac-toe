@@ -54,7 +54,6 @@ const Game = (() => {
   let currentPlayerIndex;
   let otherPlayerIndex;
   let message = document.querySelector("#message");
-  let result = document.querySelector("#result-display");
   let inputs = document.querySelector("#inputs");
 
   const start = () => {
@@ -64,8 +63,16 @@ const Game = (() => {
     ]
     currentPlayerIndex = 0;
     otherPlayerIndex = 1;
-    inputs.style.display = "none"
+    inputs.style.display = "none";
+    message.innerText = `${players[currentPlayerIndex].pseudo}'s turn`;
     Gameboard.render();
+    document.querySelector("#start-button").style.display = "none";
+  }
+
+  const restart = () => {
+    Gameboard.clear();
+    Gameboard.render();
+    message.innerText = `${players[currentPlayerIndex].pseudo}'s turn`;
   }
 
   const handleclick = (event) => {
@@ -79,13 +86,12 @@ const Game = (() => {
     let board = Gameboard.boardStatus();
     let mark = players[currentPlayerIndex].mark;
     message.innerText = `${players[otherPlayerIndex].pseudo}'s turn`;
-    result.innerText = "";
     if (board[0] === mark && board[1] === mark && board[2] === mark || board[3] === mark && board[4] === mark && board[5] === mark || board[6] === mark && board[7] === mark && board[8] === mark || board[0] === mark && board[3] === mark && board[6] === mark || board[1] === mark && board[4] === mark && board[7] === mark || board[2] === mark && board[5] === mark && board[8] === mark || board[0] === mark && board[4] === mark && board[8] === mark || board[2] === mark && board[4] === mark && board[6] === mark) {
       players[currentPlayerIndex].score += 1;
-      result.innerText = `${players[currentPlayerIndex].pseudo} wins, score : ${players[0].pseudo} - ${players[0].score} / ${players[1].pseudo} - ${players[1].score}`;
+      message.innerText = `${players[currentPlayerIndex].pseudo} wins, score : ${players[0].pseudo} - ${players[0].score} / ${players[1].pseudo} - ${players[1].score}`;
       console.log(board);
     } else if (!board.includes("")) {
-      result.innerText = `It's a tie, score : ${players[0].pseudo} - ${players[0].score} / ${players[1].pseudo} - ${players[1].score}`
+      message.innerText = `It's a tie, score : ${players[0].pseudo} - ${players[0].score} / ${players[1].pseudo} - ${players[1].score}`
     }
     currentPlayerIndex = currentPlayerIndex === 0 ? 1 : 0;
     otherPlayerIndex = otherPlayerIndex === 1 ? 0 : 1;
@@ -93,6 +99,7 @@ const Game = (() => {
 
   return {
     start,
+    restart,
     handleclick
   }
 })();
@@ -104,6 +111,5 @@ startButton.addEventListener("click", () => {
 
 const restartButton = document.querySelector("#restart-button");
 restartButton.addEventListener("click", () => {
-  Gameboard.clear();
-  Gameboard.render();
+  Game.restart();
 });
