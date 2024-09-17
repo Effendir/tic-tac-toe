@@ -6,27 +6,33 @@
 }
 
 :root {
-  --beige: rgb(246, 220, 172);
-  --orange: rgb(254, 174, 111);
+  --beige: #F6DCAC;
+  --orange: #FEAE6F;
   --grey: rgb(128, 128, 128);
-  --navy: rgb(1, 32, 78);
-  --teal: rgb(2, 131, 145);
+  --navy: #01204E;
+  --teal: #028391;
 }
 
-body {
+html, body {
+  height: 100%;
   margin: 0;
   padding: 0;
-  background-image: url(images/untitled.png);
-  background-size: 75%;
-  overflow: auto;
-  height: 100vh;
+}
+
+
+body {
+  background-color: var(--navy);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .container {
-  position: relative;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+  min-height: 100vh;
 }
 
 .navy {
@@ -42,9 +48,9 @@ body {
 /* HEADER */
 
 header {
-  height: 70px;
+  max-height: 90px;
   padding: 1%;
-  background-color: var(--navy);
+  background-color: var(--teal);
   font-family: "submarine";
   font-size: xx-large;
   color: white;
@@ -52,21 +58,30 @@ header {
   gap: 20%;
   justify-content: center;
   align-items: center;
-  border-bottom: 3px solid var(--orange);
+  border-bottom: 2px solid var(--beige);
 }
 
 h1 {
-  text-shadow: 3px 3px var(--teal);
+  text-shadow: 3px 3px var(--orange);
 }
 
 input {
-  background-color: var(--beige);
+  background-color: white;
   border: 2px solid var(--orange);
   border-radius: 5px;
   color: var(--navy);
   font-family: "submarine";
   font-size: large;
-  margin-right: 10px;
+  margin: 0;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+#inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
 }
 
 /* MAIN */
@@ -78,29 +93,27 @@ button {
   background-color: var(--navy);
   font-family: "submarine";
   font-size: x-large;
-  font-weight: bold;
   box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
   transition: 0.2s ease;
 }
 
 button:hover {
-  background-color: var(--teal);
-  box-shadow: var(--beige) 2.4px 2.4px 3.2px;
+  background-color: var(--beige);
+  color: var(--orange);
 }
 
 .main {
   padding: 1%;
   margin-right: 25%;
   margin-left: 25%;
-  margin-top: 150px;
   background-color: var(--teal);
   color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 5px solid var(--orange);
-  border-radius: 50px;
+  border: 2px solid var(--beige);
+  border-radius: 15px;
   box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 
@@ -128,7 +141,7 @@ button:hover {
   text-align: center;
   font-family: "submarine";
   font-size: 50px;
-  background-color: white;
+  background-color: beige;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
   transition: 0.2s ease;
 }
@@ -149,20 +162,17 @@ button:hover {
 /* FOOTER */
 
 footer {
+  position: relative;
   width: 100%;
   height: 70px;
-  position: absolute;
-  bottom: 0;
-  margin: 0;
-  margin-top: auto;
-  background-color: var(--navy);
+  background-color: var(--teal);
   display: flex;
   align-items: center;
   justify-content: space-around;
   color: white;
   font-family: "submarine";
   font-size: large;
-  border-top: 3px solid var(--orange);
+  border-top: 2px solid var(--beige);
 }
 
 .footer-links a, footer a {
@@ -176,15 +186,35 @@ footer {
 }
 
 .fa-heart {
-  color: var(--orange);
+  color: var(--beige);
 }
 
 .fa-mug-hot {
-  color: var(--teal);
+  color: var(--orange);
 }
 
 /* MEDIA QUERY */
 
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 500px) {
+  .container {
+    gap: 0;
+  }
 
+  header {
+    font-size: small;
+    justify-content: center;
+  }
+
+  .main {
+    margin-left: 0;
+    margin-right: 0;
+    border: 0;
+    background-color: var(--navy);
+    box-shadow: 0 0;
+  }
+
+  footer {
+    font-size: small;
+    height: 30px;
+  }
 }
